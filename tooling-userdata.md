@@ -1,6 +1,6 @@
 #!/bin/bash
 mkdir /var/www/
-sudo mount -t efs -o tls,accesspoint=fsap-091d780d7aa63a085 fs-056f150902bad3256:/ /var/www/
+sudo mount -t efs -o tls,accesspoint=fsap-0dc43016fb64e604c fs-003c763b65690d19b:/ /var/www/
 yum install -y httpd 
 systemctl start httpd
 systemctl enable httpd
@@ -19,7 +19,6 @@ touch healthstatus
 sed -i "s/$db = mysqli_connect('mysql.tooling.svc.cluster.local', 'admin', 'admin', 'tooling');/$db = mysqli_connect('acs-database.c2gn43ailhgc.us-east-1.rds.amazonaws.com', 'ACSadmin', '12345678', 'toolingdb');/g" functions.php
 chcon -t httpd_sys_rw_content_t /var/www/html/ -R
 systemctl restart httpd
-
 
 
 
