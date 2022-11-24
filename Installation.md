@@ -65,7 +65,7 @@ sudo openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048
 
 # webserver ami installation 
 ```
-yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-lach.rpmtest-8.noar
 
 yum install -y dnf-utils http://rpms.remirepo.net/enterprise/remi-release-8.rpm
 
