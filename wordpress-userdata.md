@@ -1,8 +1,8 @@
 #!/bin/bash
 mkdir /var/www/
-sudo mount -t efs -o tls,accesspoint=fsap-0afa94ef19be46892 fs-03ae7d22860928f4a:/ /var/www/
-yum install -y httpd 
-systemctl start httpd
+sudo mount -t efs -o tls,accesspoint=fsap-064df3f6df550245e fs-04c2dac376268a084:/ /var/www/
+sudo apt update
+sudo apt install apache2
 systemctl enable httpd
 yum module reset php -y
 yum module enable php:remi-7.4 -y
@@ -17,8 +17,8 @@ mkdir /var/www/html/
 cp -R /wordpress/* /var/www/html/
 cd /var/www/html/
 touch healthstatus
-sed -i "s/localhost/acs-database.cw9nlmlu2sjm.us-east-1.rds.amazonaws.com/g" wp-config.php 
-sed -i "s/username_here/ACSadmin/g" wp-config.php 
+sed -i "s/localhost/acd-rds.c2gn43ailhgc.us-east-1.rds.amazonaws.com/g" wp-config.php 
+sed -i "s/username_here/ACDadmin/g" wp-config.php 
 sed -i "s/password_here/admin12345/g" wp-config.php 
 sed -i "s/database_name_here/wordpressdb/g" wp-config.php 
 chcon -t httpd_sys_rw_content_t /var/www/html/ -R

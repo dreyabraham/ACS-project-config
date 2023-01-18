@@ -110,7 +110,7 @@ vi /etc/httpd/conf.d/ssl.conf
 
 
 # Login into the RDS instnace  and create  database for wordpress and tooling wordpress and tooling database
-mysql -h acs-database.cdqpbjkethv0.us-east-1.rds.amazonaws.com -u ACSadmin -p 
+mysql -h acd-rds.c2gn43ailhgc.us-east-1.rds.amazonaws.com -u ACDadmin -p 
 
 CREATE DATABASE toolingdb;
 CREATE DATABASE wordpressdb;
