@@ -1,6 +1,6 @@
 #!/bin/bash
 mkdir /var/www/
-sudo mount -t efs -o tls,accesspoint=fsap-064df3f6df550245e fs-04c2dac376268a084:/ /var/www/
+sudo mount -t efs -o tls,accesspoint=fsap-0e7ae24b14e4fcf7f fs-035fad5f96752ef13:/ /var/www/
 sudo apt update
 sudo apt install apache2
 systemctl enable httpd
@@ -17,17 +17,12 @@ mkdir /var/www/html/
 cp -R /wordpress/* /var/www/html/
 cd /var/www/html/
 touch healthstatus
-sed -i "s/localhost/acd-rds.c2gn43ailhgc.us-east-1.rds.amazonaws.com/g" wp-config.php 
-sed -i "s/username_here/ACDadmin/g" wp-config.php 
+sed -i "s/localhost/project15-rds.c2gn43ailhgc.us-east-1.rds.amazonaws.com/g" wp-config.php 
+sed -i "s/username_here/ACSadmin/g" wp-config.php 
 sed -i "s/password_here/admin12345/g" wp-config.php 
 sed -i "s/database_name_here/wordpressdb/g" wp-config.php 
 chcon -t httpd_sys_rw_content_t /var/www/html/ -R 
 systemctl restart httpd
-
-
-
-
-
 
 
 
